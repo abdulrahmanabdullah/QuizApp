@@ -11,4 +11,5 @@
 
     <include layout="@layout/toolbar_layout"/>
     <!-- include main_app_layout under this line .-->
+    <include layout="@layout/main_app_layout"/>
 </LinearLayout>

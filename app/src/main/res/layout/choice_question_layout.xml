@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/textColorPrimary"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp"
+    card_view:cardCornerRaduis="5dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/ic_one"
+            android:layout_margin="7dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_weight="1"
+           android:layout_width="0dp"
+           android:layout_height="match_parent">
+          <TextView
+              android:text="QQQQQQQQQQQQQQQQQQQQQQQQQ"
+              android:layout_width="wrap_content"
+              android:layout_margin="7dp"
+              android:layout_gravity="center"
+              android:textAlignment="center"
+              android:layout_height="wrap_content" />
+           <RadioGroup
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:weightSum="4"
+               android:layout_height="wrap_content">
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:gravity="center"
+                   android:text="ksdjf"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content" />
+               <RadioButton
+                   android:text="ksdjf"
+                   android:layout_weight="1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+               <RadioButton
+                   android:text="ksdjf"
+                   android:layout_weight="1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+               <RadioButton
+                   android:text="ksdf"
+                   android:layout_weight="1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+           </RadioGroup>
+       </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

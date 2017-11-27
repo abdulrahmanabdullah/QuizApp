@@ -57,9 +57,8 @@ public class SplashScreen extends AppCompatActivity {
          *   str = "guest" .
          */
         String str = studentName.getText().toString() ;
-
         if (str.equalsIgnoreCase("") || str == null ){
-            str = "guest";
+            str = " Guest";
         }
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this);
         Intent  intent = new Intent(this,MainActivity.class);

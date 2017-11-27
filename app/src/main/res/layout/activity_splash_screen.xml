@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     tools:context="abdulrahmanjavanrd.com.quizapp_project3.SplashScreen">
 
-
     <LinearLayout
         android:id="@+id/up_linear"
         android:layout_width="match_parent"

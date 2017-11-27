@@ -1,5 +1,6 @@
 package abdulrahmanjavanrd.com.quizapp_project3;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,16 +9,17 @@ import android.transition.Slide;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import abdulrahmanjavanrd.com.quizapp_project3.constant.ConstantValues;
+
 public class MainActivity extends AppCompatActivity {
-
-
-
     /**
      *  pure app for copy and past in future .
      * @param savedInstanceState
      */
+    TextView tx  ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_layout);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getString(R.string.app_name));
-
-        setUpAnim();
+       setUpAnim();
+       receiveStudentName();
     }
 
     /**
@@ -51,11 +53,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setUpAnim(){
-
-        Explode expload = new Explode();
-        Slide s = new Slide();
-        s.setDuration(100);
-        expload.setDuration(1000);
-        getWindow().setEnterTransition(expload);
+        Explode explode = new Explode();
+        explode.setDuration(1000);
+        getWindow().setEnterTransition(explode);
     }
+
+   public void receiveStudentName(){
+       tx = findViewById(R.id.txv_name);
+       String str =  getIntent().getStringExtra(ConstantValues.NAME);
+       tx.setText(str);
+   }
 }
