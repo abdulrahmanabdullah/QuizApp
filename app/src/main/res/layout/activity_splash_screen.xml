@@ -10,7 +10,7 @@
 
 
     <LinearLayout
-        android:id="@+id/above_linear"
+        android:id="@+id/up_linear"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_marginBottom="24dp"
@@ -40,18 +40,17 @@
         android:hint="@string/hint_message_for_student_name"
         android:textColor="@color/textColorPrimary"
         android:background="@drawable/button_sytles"
-        android:layout_below="@id/above_linear"
+        android:layout_below="@id/up_linear"
         android:layout_centerVertical="true"
         android:gravity="center"
         android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <LinearLayout
-        android:id="@+id/below_linear"
+        android:id="@+id/down_linear"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:layout_marginBottom="10dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"

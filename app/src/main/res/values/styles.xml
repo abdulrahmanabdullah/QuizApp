@@ -7,6 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <!--Enable window content transition -->
+        <item name="android:windowContentTransitions">true</item>
     </style>
     <!--Toolbar theme .-->
     <style name="toolbarTheme" parent="ThemeOverlay.AppCompat">
