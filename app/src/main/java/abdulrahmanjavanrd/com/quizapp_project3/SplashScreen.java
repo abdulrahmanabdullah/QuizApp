@@ -2,6 +2,7 @@ package abdulrahmanjavanrd.com.quizapp_project3;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.Transition;
@@ -23,12 +24,12 @@ public class SplashScreen extends AppCompatActivity {
      *
      * {@link #studentName} id = et_student_name ;
      * {@link #upLinear} This LinearLayout contain imageView and TextView, Position Top parent .
-     *  {@link #downLinear } LinearLaout contain Button , textView . Position Bottom parent .
+     *  {@link #downLinear } LinearLayout contain Button , textView . Position Bottom parent .
      */
     EditText studentName ;
     LinearLayout upLinear , downLinear  ;
-
     Animation upAni ,downAni;
+    boolean mShouldFinish = false ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,21 +46,35 @@ public class SplashScreen extends AppCompatActivity {
         studentName.setAnimation(downAni);
     }
     /**
-     *
      * @param view to access button in activity_splash_screen .
      *             After that .
      * Create new Intent, and call MainActivity With studentName,
      *             ConstantValues.Name = "studentName" ;
      */
     public void callMainActivity(View view){
+        /**
+         * check if {@link #str == null } if student forget his name
+         *   str = "guest" .
+         */
         String str = studentName.getText().toString() ;
+
+        if (str.equalsIgnoreCase("") || str == null ){
+            str = "guest";
+        }
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this);
         Intent  intent = new Intent(this,MainActivity.class);
         intent.putExtra(ConstantValues.NAME,str);
-//        Transition tran  = TransitionInflater.from(this).inflateTransition(R.transition.first_screen_transisiton);
-//        tran.setDuration(500);
-//        getWindow().setEnterTransition(tran);
+        mShouldFinish = true;
         startActivity(intent,options.toBundle());
-        this.finish();
+        //TODO: Finish this Activity after click button .
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mShouldFinish){
+            finish();
+        }
     }
 }
