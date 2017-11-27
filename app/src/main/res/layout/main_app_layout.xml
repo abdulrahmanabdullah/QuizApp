@@ -9,20 +9,15 @@
         android:orientation="vertical"
         android:padding="16dp"
         android:layout_height="wrap_content">
-        <!-- Student name -->
+        <!-- Student name, visibility = False , Because i want this filed in last Activity -->
         <TextView
-            android:text="test "
             android:id="@+id/txv_name"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <android.support.v7.app.AlertController.RecycleListView
-            android:id="@+id/recycler_choice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </android.support.v7.app.AlertController.RecycleListView>
         <Button
-            android:text="next page"
+            android:text="@string/next_slide"
+            android:onClick="goToNextSlide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

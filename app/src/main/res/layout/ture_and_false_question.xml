@@ -29,16 +29,16 @@
             android:orientation="vertical"
             android:layout_height="wrap_content">
             <TextView
-                android:text="QQQQQadfasd asdfasdf dsaf fasdfasdf
-asdfdsaf sadfdsfasdf "
+                android:text="@string/true_question"
+                android:textSize="24sp"
                 android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp" />
+                android:layout_height="wrap_content" />
 
             <CheckBox
-                android:text="True"
+                android:id="@+id/checkBox_yes"
+                android:text="@string/yes"
                 android:layout_gravity="left"
                 android:paddingLeft="24dp"
                 android:layout_marginLeft="24dp"
@@ -46,7 +46,8 @@ asdfdsaf sadfdsfasdf "
                 android:layout_weight="1"
                 android:layout_height="0dp" />
             <CheckBox
-                android:text="False"
+                android:text="@string/no"
+                android:id="@+id/checkBox_no"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_gravity="left"

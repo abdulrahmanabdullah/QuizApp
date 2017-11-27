@@ -9,4 +9,10 @@
     <string name="trueAndFalse">True / False</string>
     <string name="show_result">Result</string>
     <string name="question_7">Write shortcut of Java Virtual Machine ?</string>
+    <string name="true_question">Is delete,next,main,exit or null keyword in java ?</string>
+    <string name="yes">yes</string>
+    <string name="no">No</string>
+    <string name="next_slide">Next</string>
+    <string name="title_second_page">Second page</string>
+    <string name="complete_question">Complete Questions</string>
 </resources>

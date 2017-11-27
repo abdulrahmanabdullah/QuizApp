@@ -6,6 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="abdulrahmanjavanrd.com.quizapp_project3.SecondQuestion">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/second_toolBar"
+        android:elevation="4dp"
+        android:background="@color/colorPrimary"
+        android:layout_height="?attr/actionBarSize"
+    />
 
     <TextView
         android:paddingTop="24dp"
@@ -15,7 +22,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
     <!--include input question -->
    <include layout="@layout/input_question"/>
     <!-- textView for true and false question -->
