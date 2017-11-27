@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Basic-ui</string>
+    <string name="setting">settings</string>
+    <string name="btn_send_student_name">let\'s start</string>
+    <string name="author_name">create By Abdulahman</string>
+    <string name="welcome_message">Hello, This is a just simple java qiuz</string>
+    <string name="hint_message_for_student_name">Please enter your name</string>
+</resources>

@@ -1,0 +1,27 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+    </style>
+    <!--Toolbar theme .-->
+    <style name="toolbarTheme" parent="ThemeOverlay.AppCompat">
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+    </style>
+    <!-- Toolbar popup theme .-->
+    <style name="popupTheme" parent="ThemeOverlay.AppCompat">
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+    </style>
+
+    <!--Styles for text view in splash screen -->
+    <style name="StaticText">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:text"></item>
+    </style>
+</resources>
