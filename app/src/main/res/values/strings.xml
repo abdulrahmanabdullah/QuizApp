@@ -8,4 +8,5 @@
     <string name="write_correct_answer">Write Correct Answer</string>
     <string name="trueAndFalse">True / False</string>
     <string name="show_result">Result</string>
+    <string name="question_7">Write shortcut of Java Virtual Machine ?</string>
 </resources>

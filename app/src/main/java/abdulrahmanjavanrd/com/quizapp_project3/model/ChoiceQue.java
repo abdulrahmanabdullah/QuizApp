@@ -53,8 +53,9 @@ public class ChoiceQue {
         return listQuestion ;
     }
     private static int[] getImages(){
-        int[] img = {R.drawable.ic_one,R.drawable.ic_two,R.drawable.ic_three,R.drawable.ic_four,R.drawable.ic_four};
-
+        int[] img = {R.drawable.ic_one, R.drawable.ic_two, R.drawable.ic_three, R.drawable.ic_four, R.drawable.ic_five
+                ,R.drawable.ic_six,R.drawable.ic_seven
+        };
         return img ;
     }
 
@@ -62,6 +63,4 @@ public class ChoiceQue {
         String[] allQuestion = {"q1","q2","q3","q4"};
         return  allQuestion ;
     }
-
-
 }
