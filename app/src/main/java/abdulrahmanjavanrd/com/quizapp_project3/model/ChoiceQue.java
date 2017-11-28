@@ -1,6 +1,7 @@
 package abdulrahmanjavanrd.com.quizapp_project3.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import abdulrahmanjavanrd.com.quizapp_project3.R;
 
@@ -62,5 +63,24 @@ public class ChoiceQue {
     private static String[] allQuestion(){
         String[] allQuestion = {"q1","q2","q3","q4","q5","q6","q7"};
         return  allQuestion ;
+    }
+
+   public  static String[] setRadioAnswer(int position){
+        HashMap<Integer ,String[] > mapList = new HashMap<>();
+        String[] a1 = {"1","b","c","d"};
+        String[] a2 = {"2","f","g","h"};
+        String[] a3 = {"3","3","3","3"};
+        String[] a4 = {"4","4","c","d"};
+        String[] a5 = {"5","5","c","d"};
+        String[] a6 = {"6","b","c","6"};
+        String[] a7 = {"7","7","7","7"};
+        mapList.put(0,a1);
+        mapList.put(1,a2);
+        mapList.put(2,a3);
+        mapList.put(3,a4);
+        mapList.put(4,a5);
+        mapList.put(5,a6);
+        mapList.put(6,a7);
+        return mapList.get(position);
     }
 }
