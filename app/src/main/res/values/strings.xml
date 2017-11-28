@@ -15,4 +15,5 @@
     <string name="next_slide">Next</string>
     <string name="title_second_page">Second page</string>
     <string name="complete_question">Complete Questions</string>
+    <string name="choice_question">Please choice correct answer</string>
 </resources>

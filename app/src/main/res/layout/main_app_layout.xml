@@ -15,6 +15,21 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <!--Question title -->
+        <TextView
+            android:text="@string/choice_question"
+            android:textSize="24sp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!-- include First Question choice card -->
+
+
+        <!-- Recycler View .. to show all choice questions .-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_v"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
         <Button
             android:text="@string/next_slide"
             android:onClick="goToNextSlide"

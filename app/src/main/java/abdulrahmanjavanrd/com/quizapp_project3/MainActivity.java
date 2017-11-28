@@ -3,22 +3,24 @@ package abdulrahmanjavanrd.com.quizapp_project3;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import abdulrahmanjavanrd.com.quizapp_project3.adapter.ChoiceQuestionRecycler;
 import abdulrahmanjavanrd.com.quizapp_project3.constant.ConstantValues;
+import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
 
 public class MainActivity extends AppCompatActivity {
-    /**
-     *  pure app for copy and past in future .
-     * @param savedInstanceState
-     */
     TextView txvStudentName;
+    RecyclerView recyclerView ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +29,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getString(R.string.app_name));
         txvStudentName = findViewById(R.id.txv_name);
+        recyclerView = findViewById(R.id.recycler_v);
         /** call {@link #setTxvStudentName()}  method  to set student name */
         setTxvStudentName();
         Toast.makeText(this, txvStudentName.getText().toString(),Toast.LENGTH_LONG).show();
         /**  call {@link #setUpAnim()} for  animations */
        setUpAnim();
+       setUpRecycler();
     }
 
     /**
@@ -78,6 +82,15 @@ public class MainActivity extends AppCompatActivity {
         txvStudentName.setText(str);
     }
 
+
+    public void setUpRecycler(){
+        ChoiceQuestionRecycler recycler = new ChoiceQuestionRecycler(ChoiceQue.getData(),this);
+        recyclerView.setAdapter(recycler);
+        LinearLayoutManager linearLayout = new LinearLayoutManager(this);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        recyclerView.setLayoutManager(linearLayout);
+
+    }
     /**
      * @return The Text in TextView .
      */

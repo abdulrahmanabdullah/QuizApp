@@ -60,7 +60,7 @@ public class ChoiceQue {
     }
 
     private static String[] allQuestion(){
-        String[] allQuestion = {"q1","q2","q3","q4"};
+        String[] allQuestion = {"q1","q2","q3","q4","q5","q6","q7"};
         return  allQuestion ;
     }
 }
