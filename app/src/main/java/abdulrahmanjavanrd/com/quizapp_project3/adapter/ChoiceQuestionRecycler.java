@@ -72,72 +72,8 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
             rdGroup = v.findViewById(R.id.rd_group);
             txvChoiceQ = v.findViewById(R.id.txv_choice_q);
             o1 = v.findViewById(R.id.option_1);
-//            o1.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int i = getAdapterPosition();
-//                    if( i ==1 || i == 5 ){
-//                        getAllScore++;
-////                        o1.setId(i);
-////                        o1.setBackgroundColor(Color.GREEN);
-//                        imgQ.setImageResource(R.drawable.ic_right);
-//                        rdGroup.setId(i);
-//                        Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(context," RdGroup =  "+ rdGroup.getId(),Toast.LENGTH_SHORT).show();
-//
-//                        Toast.makeText(context," child  =  "+ o1.getId(),Toast.LENGTH_SHORT).show();
-//                    }
-//                    else {
-////                        o1.setId(i);
-//                        o1.setBackgroundColor(Color.RED);
-//                        rdGroup.setEnabled(false);
-//                        imgQ.setImageResource(R.drawable.ic_cross);
-//                    }
-//                }
-//            });
             o2 = v.findViewById(R.id.option_2);
-//            o2.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int i = getAdapterPosition();
-//                    if (i == 3 ) {
-//                        getAllScore++;
-//                        imgQ.setImageResource(R.drawable.ic_right);
-//                        rdGroup.setId(i);
-//                        Toast.makeText(context, " total = " + getAllScore, Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(context," RdGroup =  "+ rdGroup.getId(),Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(context," child  =  "+ o2.getId(),Toast.LENGTH_SHORT).show();
-//                    }else {
-////                        o2.setId(i);
-//                        o2.setBackgroundColor(Color.RED);
-//                        o2.setChecked(false);
-//                        imgQ.setImageResource(R.drawable.ic_cross);
-//                    }
-//                }
-//            });
             o3 = v.findViewById(R.id.option_3);
-//            o3.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int i = getAdapterPosition();
-//                    if( i == 4 || i == 6){
-//                        getAllScore++;
-//                        rdGroup.setId(i);
-//                   imgQ.setImageResource(R.drawable.ic_right);
-//                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(context," RdGroup = "+ rdGroup.getId(),Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(context," child  =  "+ o3.getId(),Toast.LENGTH_SHORT).show();
-//                    }
-//                    else {
-////                        o3.setId(i);
-//                        o3.setBackgroundColor(Color.RED);
-//                        rdGroup.setEnabled(false);
-//                        imgQ.setImageResource(R.drawable.ic_cross);
-//                    }
-//                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
-//
-//                }
-//            });
             o4 = v.findViewById(R.id.option_4);
             rdGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
@@ -152,7 +88,7 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
             rdGroup.setId(position);
             switch (rdGroup.getId()){
                 case 0:
-                    compareAnswer(rdGroup.getCheckedRadioButtonId() ,o4.getId());// true .
+                    compareAnswer(rdGroup.getCheckedRadioButtonId() ,o4.getId());
                     break;
                 case 1 :
                     compareAnswer(rdGroup.getCheckedRadioButtonId(),o1.getId());

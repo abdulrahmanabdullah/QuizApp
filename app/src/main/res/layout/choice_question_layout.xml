@@ -2,8 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:card_view="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/textColorPrimary"
     android:layout_marginTop="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginBottom="5dp"
@@ -20,9 +18,10 @@
         <ImageView
             android:id="@+id/img_choice_q"
             android:src="@drawable/ic_one"
+            android:layout_gravity="center_vertical"
             android:layout_margin="7dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
        <LinearLayout
            android:orientation="vertical"
@@ -30,12 +29,9 @@
            android:layout_height="wrap_content">
           <TextView
               android:id="@+id/txv_choice_q"
-              android:text="QQQQQQQQQQQQQQQQQQQQQQQQQ"
-              android:layout_width="wrap_content"
-              android:layout_margin="7dp"
-              android:layout_gravity="center"
-              android:textAlignment="center"
-              android:layout_height="wrap_content" />
+              android:hint="test"
+              style="@style/questionStyle"
+               />
            <RadioGroup
                android:layout_width="match_parent"
                android:id="@+id/rd_group"
@@ -45,23 +41,31 @@
                    android:id="@+id/option_1"
                    android:layout_width="wrap_content"
                    android:gravity="center"
+                   android:layout_marginLeft="5dp"
                    android:text="ksdjf"
-                   android:layout_height="wrap_content" />
+                   android:layout_weight="1"
+                   android:layout_height="0dp" />
                <RadioButton
                    android:text="ksdjf"
                    android:id="@+id/option_2"
                    android:layout_width="wrap_content"
-                   android:layout_height="wrap_content" />
+                   android:layout_weight="1"
+                   android:layout_marginLeft="5dp"
+                   android:layout_height="0dp" />
                <RadioButton
                    android:text="ksdjf"
                    android:id="@+id/option_3"
                    android:layout_width="wrap_content"
-                   android:layout_height="wrap_content" />
+                   android:layout_marginLeft="5dp"
+                   android:layout_weight="1"
+                   android:layout_height="0dp" />
                <RadioButton
                    android:text="ksdf"
+                   android:layout_marginLeft="5dp"
                    android:id="@+id/option_4"
                    android:layout_width="wrap_content"
-                   android:layout_height="wrap_content" />
+                   android:layout_weight="1"
+                   android:layout_height="0dp" />
            </RadioGroup>
        </LinearLayout>
     </LinearLayout>

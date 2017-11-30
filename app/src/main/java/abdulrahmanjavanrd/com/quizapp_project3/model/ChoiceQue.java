@@ -10,9 +10,9 @@ import abdulrahmanjavanrd.com.quizapp_project3.R;
  */
 public class ChoiceQue {
 
-    String question ;
-    String[] choice ;
-    int questionNumber ;
+   private String question ;
+   private String[] choice ;
+   private int questionNumber ;
 
     public void setQuestion(String question) {
         this.question = question;
