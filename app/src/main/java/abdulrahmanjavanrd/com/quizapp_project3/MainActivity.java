@@ -3,6 +3,7 @@ package abdulrahmanjavanrd.com.quizapp_project3;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -84,10 +85,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void setUpRecycler(){
-        ChoiceQuestionRecycler recycler = new ChoiceQuestionRecycler(ChoiceQue.getData(),this);
+        ChoiceQuestionRecycler recycler = new ChoiceQuestionRecycler(this,ChoiceQue.getData());
         recyclerView.setAdapter(recycler);
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        DividerItemDecoration divider = new DividerItemDecoration(recyclerView.getContext(),linearLayout.getOrientation());
+        recyclerView.addItemDecoration(divider);
         recyclerView.setLayoutManager(linearLayout);
 
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
@@ -20,14 +21,18 @@ import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
 public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionRecycler.MyViewHolder> {
     private List<ChoiceQue> mData;
     private LayoutInflater mInflater;
+    public Context context ;
+    int lastSelection  ;
+    int getAllScore ;
 
     /**
      * @param data List value of ChoiceQue, When i call This call i can passing static arrayList .
      * @param ctx  to declare the LayoutInflater .
      */
-    public ChoiceQuestionRecycler(List<ChoiceQue> data, Context ctx) {
+    public ChoiceQuestionRecycler(Context ctx , List<ChoiceQue> data ) {
         this.mData = data;
         this.mInflater = LayoutInflater.from(ctx);
+        this.context = ctx ;
     }
 
     @Override
@@ -38,7 +43,7 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
         return viewHolder;
     }
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final  MyViewHolder holder,final int position) {
         Log.i("recycler ", " OnBindViewHolder" + position);
         ChoiceQue currentObject = mData.get(position);
         holder.setData(currentObject, position);
@@ -52,28 +57,73 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
         return mData.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txvChoiceQ;
         ImageView imgQ;
+        RadioGroup rdGroup ;
         RadioButton o1, o2, o3, o4;
         int position;
         ChoiceQue choiceQue;
-
         public MyViewHolder(View v) {
             super(v);
             imgQ = v.findViewById(R.id.img_choice_q);
-            o1 = v.findViewById(R.id.option_1);
-            o2 = v.findViewById(R.id.option_2);
-            o3 = v.findViewById(R.id.option_3);
-            o4 = v.findViewById(R.id.option_4);
+            rdGroup = v.findViewById(R.id.rd_group);
             txvChoiceQ = v.findViewById(R.id.txv_choice_q);
-        }
+            o1 = v.findViewById(R.id.option_1);
+            o1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int i = getAdapterPosition();
+                    if( i ==1 || i == 4 || i == 5 ){
+                        getAllScore++;
+//                        imgQ.setImageResource(R.drawable.ic_eight);
+                        Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            o2 = v.findViewById(R.id.option_2);
+            o2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int i = getAdapterPosition();
+                    if (i == 3 )
+                        getAllScore++;
+                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
 
+                }
+            });
+            o3 = v.findViewById(R.id.option_3);
+            o3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int i = getAdapterPosition();
+                    if ( i == 4)
+                        getAllScore++;
+                    if( i == 6)
+                        getAllScore++;
+                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
+                }
+            });
+            o4 = v.findViewById(R.id.option_4);
+            o4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int i = getAdapterPosition();
+                    if (i == 0)
+                        getAllScore++;
+                    if( i == 2)
+                        getAllScore++ ;
+                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
         /**
          * @param currentObject get instance of ChoiceQue
          * @param position      to modify each object
          */
         public void setData(ChoiceQue currentObject, int position) {
+
             this.imgQ.setImageResource(currentObject.getQuestionNumber());
             this.txvChoiceQ.setText(currentObject.getQuestion());
             try {
@@ -82,7 +132,7 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
                 /**
                  * One repeating loop, Because i want to access all RadioButton for each card .
                  * Example  radioArray= {"a","b","c","d"}
-                 *   In this loop I can retrieve data in RadioButton .
+                 *   In this loop I can injection data in RadioButton .
                  */
                 for (int i = 0; i <= 0; i++) {
                     o1.setText(radioArray[i]); // This equal index = 0  in array[position] .
@@ -96,8 +146,18 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
              */ catch (NullPointerException ex) {
                 Log.d("debug", "array is null  ");
             }
+//            o1.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int i =  rdGroup.getCheckedRadioButtonId();
+//                    rdGroup.clearCheck();
+//                    Toast.makeText(context," you clicked = "+ i,Toast.LENGTH_SHORT).show();
+//                }
+//            });
             this.position = position;
             this.choiceQue = currentObject;
         }
+
+
     }
 }

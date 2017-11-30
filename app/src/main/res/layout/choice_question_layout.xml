@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:card_view="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -26,9 +26,8 @@
 
        <LinearLayout
            android:orientation="vertical"
-           android:layout_weight="1"
-           android:layout_width="0dp"
-           android:layout_height="match_parent">
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
           <TextView
               android:id="@+id/txv_choice_q"
               android:text="QQQQQQQQQQQQQQQQQQQQQQQQQ"
@@ -40,36 +39,31 @@
            <RadioGroup
                android:layout_width="match_parent"
                android:id="@+id/rd_group"
-               android:orientation="horizontal"
-               android:weightSum="4"
+               android:orientation="vertical"
                android:layout_height="wrap_content">
                <RadioButton
                    android:id="@+id/option_1"
                    android:layout_width="wrap_content"
                    android:gravity="center"
+                   android:onClick="rbClick"
                    android:text="ksdjf"
-                   android:layout_weight="1"
                    android:layout_height="wrap_content" />
                <RadioButton
                    android:text="ksdjf"
                    android:id="@+id/option_2"
-                   android:layout_weight="1"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content" />
                <RadioButton
                    android:text="ksdjf"
-
                    android:id="@+id/option_3"
-                   android:layout_weight="1"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content" />
                <RadioButton
                    android:text="ksdf"
-                   android:layout_weight="1"
                    android:id="@+id/option_4"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content" />
            </RadioGroup>
        </LinearLayout>
     </LinearLayout>
-</android.support.v7.widget.CardView>
+</LinearLayout>

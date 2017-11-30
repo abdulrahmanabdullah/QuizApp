@@ -29,11 +29,6 @@ public class ChoiceQue {
     public String getQuestion() {
         return question;
     }
-
-    public String[] getChoice() {
-        return choice;
-    }
-
     public int getQuestionNumber() {
         return questionNumber;
     }
@@ -61,26 +56,20 @@ public class ChoiceQue {
     }
 
     private static String[] allQuestion(){
-        String[] allQuestion = {"q1","q2","q3","q4","q5","q6","q7"};
+        String[] allQuestion = {"What is the default value of LocalVariable?","What is the Size of a char?","Java run on ","What is the correct syntax for java main method ?","Choose the appropriate data type for this values : A ","Result in : int t=6.7 ?" ,"The most common use of an array is to : "};
         return  allQuestion ;
     }
 
    public  static String[] setRadioAnswer(int position){
         HashMap<Integer ,String[] > mapList = new HashMap<>();
-        String[] a1 = {"1","b","c","d"};
-        String[] a2 = {"2","f","g","h"};
-        String[] a3 = {"3","3","3","3"};
-        String[] a4 = {"4","4","c","d"};
-        String[] a5 = {"5","5","c","d"};
-        String[] a6 = {"6","b","c","6"};
-        String[] a7 = {"7","7","7","7"};
-        mapList.put(0,a1);
-        mapList.put(1,a2);
-        mapList.put(2,a3);
-        mapList.put(3,a4);
-        mapList.put(4,a5);
-        mapList.put(5,a6);
-        mapList.put(6,a7);
+        String[] a1 = {"null","0","depends of data type","no default value for LocalVariable"};// Correct answer is = 3 .
+        String[] a2 = {"16bit","8bit","7bit","4bit"};//Correct answer is = 0.
+        String[] a3 = {"Windows","Linux","Mac","All OS"};// Correct answer is = 3
+        String[] a4 = {"public void main()","public static void main(String[] args)","public static void main()","None of the above"};// correct answer is 1
+        String[] a5 = {"int","String","Char","Double"};// Correct answer is = 2
+        String[] a6 = {"compilation error","RunTime error","t = 6.7","t = 6"};//correct answer is = 0
+        String[] a7 = {"Perform while loop on array","Perform for loop on array","Perform the some operation on all element","Perform different operation one each element in array "};// correct answer is = 2
+        mapList.put(0,a1); mapList.put(1,a2);mapList.put(2,a3);mapList.put(3,a4);mapList.put(4,a5);mapList.put(5,a6);mapList.put(6,a7);
         return mapList.get(position);
     }
 }
