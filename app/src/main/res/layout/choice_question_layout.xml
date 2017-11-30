@@ -45,7 +45,6 @@
                    android:id="@+id/option_1"
                    android:layout_width="wrap_content"
                    android:gravity="center"
-                   android:onClick="rbClick"
                    android:text="ksdjf"
                    android:layout_height="wrap_content" />
                <RadioButton

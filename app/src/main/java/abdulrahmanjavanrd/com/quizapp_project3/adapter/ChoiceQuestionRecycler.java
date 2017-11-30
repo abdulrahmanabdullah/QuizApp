@@ -1,6 +1,8 @@
 package abdulrahmanjavanrd.com.quizapp_project3.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -70,53 +72,126 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
             rdGroup = v.findViewById(R.id.rd_group);
             txvChoiceQ = v.findViewById(R.id.txv_choice_q);
             o1 = v.findViewById(R.id.option_1);
-            o1.setOnClickListener(new View.OnClickListener() {
+//            o1.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int i = getAdapterPosition();
+//                    if( i ==1 || i == 5 ){
+//                        getAllScore++;
+////                        o1.setId(i);
+////                        o1.setBackgroundColor(Color.GREEN);
+//                        imgQ.setImageResource(R.drawable.ic_right);
+//                        rdGroup.setId(i);
+//                        Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context," RdGroup =  "+ rdGroup.getId(),Toast.LENGTH_SHORT).show();
+//
+//                        Toast.makeText(context," child  =  "+ o1.getId(),Toast.LENGTH_SHORT).show();
+//                    }
+//                    else {
+////                        o1.setId(i);
+//                        o1.setBackgroundColor(Color.RED);
+//                        rdGroup.setEnabled(false);
+//                        imgQ.setImageResource(R.drawable.ic_cross);
+//                    }
+//                }
+//            });
+            o2 = v.findViewById(R.id.option_2);
+//            o2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int i = getAdapterPosition();
+//                    if (i == 3 ) {
+//                        getAllScore++;
+//                        imgQ.setImageResource(R.drawable.ic_right);
+//                        rdGroup.setId(i);
+//                        Toast.makeText(context, " total = " + getAllScore, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context," RdGroup =  "+ rdGroup.getId(),Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context," child  =  "+ o2.getId(),Toast.LENGTH_SHORT).show();
+//                    }else {
+////                        o2.setId(i);
+//                        o2.setBackgroundColor(Color.RED);
+//                        o2.setChecked(false);
+//                        imgQ.setImageResource(R.drawable.ic_cross);
+//                    }
+//                }
+//            });
+            o3 = v.findViewById(R.id.option_3);
+//            o3.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int i = getAdapterPosition();
+//                    if( i == 4 || i == 6){
+//                        getAllScore++;
+//                        rdGroup.setId(i);
+//                   imgQ.setImageResource(R.drawable.ic_right);
+//                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context," RdGroup = "+ rdGroup.getId(),Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context," child  =  "+ o3.getId(),Toast.LENGTH_SHORT).show();
+//                    }
+//                    else {
+////                        o3.setId(i);
+//                        o3.setBackgroundColor(Color.RED);
+//                        rdGroup.setEnabled(false);
+//                        imgQ.setImageResource(R.drawable.ic_cross);
+//                    }
+//                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
+//
+//                }
+//            });
+            o4 = v.findViewById(R.id.option_4);
+            rdGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
-                public void onClick(View v) {
-                    int i = getAdapterPosition();
-                    if( i ==1 || i == 4 || i == 5 ){
-                        getAllScore++;
-//                        imgQ.setImageResource(R.drawable.ic_eight);
-                        Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    int i = getAdapterPosition() ;
+                    setAnswer(i);
+                    Toast.makeText(context," Here id = "+ rdGroup.getId() ,Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        public void setAnswer(int position ){
+            rdGroup.setId(position);
+            switch (rdGroup.getId()){
+                case 0:
+                    compareAnswer(rdGroup.getCheckedRadioButtonId() ,o4.getId());// true .
+                    break;
+                case 1 :
+                    compareAnswer(rdGroup.getCheckedRadioButtonId(),o1.getId());
+                    break;
+                case 2 :
+                    compareAnswer(rdGroup.getCheckedRadioButtonId() , o4.getId());
+                    break;
+                case 3 :
+                    compareAnswer(rdGroup.getCheckedRadioButtonId(),o2.getId());
+                    break;
+                case 4 :
+                    compareAnswer(rdGroup.getCheckedRadioButtonId(),o3.getId());
+                    break;
+                case 5 :
+                    compareAnswer(rdGroup.getCheckedRadioButtonId(),o1.getId());
+                    break;
+                case  6:
+                    compareAnswer(rdGroup.getCheckedRadioButtonId(),o3.getId());
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public boolean compareAnswer(int left ,int right){
+            boolean isCorrect = false ;
+                if (left == right){
+                    imgQ.setImageResource(R.drawable.ic_right);
+                    for (int j = 0; j < rdGroup.getChildCount(); j++) {
+                        rdGroup.getChildAt(j).setEnabled(false);
+                    }
+                    isCorrect =true;
+                }else {
+                    imgQ.setImageResource(R.drawable.ic_cross);
+                    for (int j = 0; j < rdGroup.getChildCount(); j++) {
+                        rdGroup.getChildAt(j).setEnabled(false);
                     }
                 }
-            });
-            o2 = v.findViewById(R.id.option_2);
-            o2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int i = getAdapterPosition();
-                    if (i == 3 )
-                        getAllScore++;
-                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
-
-                }
-            });
-            o3 = v.findViewById(R.id.option_3);
-            o3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int i = getAdapterPosition();
-                    if ( i == 4)
-                        getAllScore++;
-                    if( i == 6)
-                        getAllScore++;
-                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
-                }
-            });
-            o4 = v.findViewById(R.id.option_4);
-            o4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int i = getAdapterPosition();
-                    if (i == 0)
-                        getAllScore++;
-                    if( i == 2)
-                        getAllScore++ ;
-                    Toast.makeText(context," total = "+ getAllScore,Toast.LENGTH_SHORT).show();
-
-                }
-            });
+            return isCorrect;
         }
         /**
          * @param currentObject get instance of ChoiceQue
@@ -146,14 +221,6 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
              */ catch (NullPointerException ex) {
                 Log.d("debug", "array is null  ");
             }
-//            o1.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int i =  rdGroup.getCheckedRadioButtonId();
-//                    rdGroup.clearCheck();
-//                    Toast.makeText(context," you clicked = "+ i,Toast.LENGTH_SHORT).show();
-//                }
-//            });
             this.position = position;
             this.choiceQue = currentObject;
         }
