@@ -7,4 +7,6 @@ package abdulrahmanjavanrd.com.quizapp_project3.constant;
 public class ConstantValues {
 
     public final static  String NAME = "studentName";
+    public final static String ACTION_NAME = "my.action.receiver";
+    public final static String SCORE_VALUE = "scoreVale";
 }

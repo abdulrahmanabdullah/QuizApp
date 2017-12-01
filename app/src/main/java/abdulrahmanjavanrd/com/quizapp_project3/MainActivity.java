@@ -3,6 +3,7 @@ package abdulrahmanjavanrd.com.quizapp_project3;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -24,6 +25,7 @@ import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
 public class MainActivity extends AppCompatActivity {
     TextView txvStudentName;
     RecyclerView recyclerView ;
+    LocalBroadcastManager manager ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_layout);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getString(R.string.app_name));
+        manager = LocalBroadcastManager.getInstance(this);
         txvStudentName = findViewById(R.id.txv_name);
         recyclerView = findViewById(R.id.recycler_v);
         /** call {@link #setTxvStudentName()}  method  to set student name */
@@ -41,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
        setUpRecycler();
     }
 
+
+    public void sendLocalData(){
+        Intent testIntent = new Intent(ConstantValues.ACTION_NAME);
+        testIntent.putExtra(ConstantValues.SCORE_VALUE,10);
+        manager.sendBroadcast(testIntent);
+    }
     /**
      * menu methods ..
      * @param menu  set menu file layout .
@@ -108,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
      *          Inside this method i called {@link #receiveStudentName()} to get Student Name .
      */
   public void goToNextSlide(View v){
+      sendLocalData();
        Intent intent = new Intent(this,SecondQuestion.class);
       intent.putExtra(ConstantValues.NAME,receiveStudentName());
       startActivity(intent);

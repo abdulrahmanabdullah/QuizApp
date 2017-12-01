@@ -16,6 +16,7 @@ import android.widget.Toast;
 import java.util.List;
 import abdulrahmanjavanrd.com.quizapp_project3.R;
 import abdulrahmanjavanrd.com.quizapp_project3.SecondQuestion;
+import abdulrahmanjavanrd.com.quizapp_project3.constant.ConstantValues;
 import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
 /**
  * @author  by Abdulrahman abdullah
@@ -25,6 +26,7 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
     private List<ChoiceQue> mData;
     private LayoutInflater mInflater;
     public Context context ;
+    LocalBroadcastManager manager ;
     int lastSelection  ;
     int getAllScore ;
 
@@ -36,6 +38,7 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
         this.mData = data;
         this.mInflater = LayoutInflater.from(ctx);
         this.context = ctx ;
+        manager = LocalBroadcastManager.getInstance(context);
     }
 
     @Override
@@ -165,9 +168,6 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
 
         public void sendScore(int s){
             //TODO: send LocalBroadcast Receiver, To SecondQuestionClass .
-            Intent intent = new Intent("action.name");
-            intent.putExtra("s",s);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
         }
 
     }

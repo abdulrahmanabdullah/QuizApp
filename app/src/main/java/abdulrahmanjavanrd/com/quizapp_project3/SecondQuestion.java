@@ -3,9 +3,12 @@ package abdulrahmanjavanrd.com.quizapp_project3;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.v7.widget.Toolbar;
 import android.widget.CheckBox;
@@ -19,11 +22,14 @@ public class SecondQuestion extends AppCompatActivity {
     EditText etAnswer8;
     CheckBox yesAnswer , noAnswer ;
     int calcuScore ;
+
+    LocalBroadcastManager manager ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_question);
         Toolbar toolbar = findViewById(R.id.second_toolBar);
+        manager = LocalBroadcastManager.getInstance(this);
         etAnswer8 = findViewById(R.id.et_answer_8);
         yesAnswer = findViewById(R.id.checkBox_yes);
         noAnswer = findViewById(R.id.checkBox_no);
@@ -70,11 +76,26 @@ public class SecondQuestion extends AppCompatActivity {
         Toast.makeText(this," student name = " + studentName, Toast.LENGTH_LONG).show();
 
     }
-
+@Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter filter = new IntentFilter(ConstantValues.ACTION_NAME);
+        manager.registerReceiver(receiver,filter);
+    }
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            int i = intent.getIntExtra("s",-1);
+            int i = intent.getIntExtra(ConstantValues.SCORE_VALUE,-1);
+            Log.i("ma","Got number = "+i);
+            Toast.makeText(context," we receive one messge .",Toast.LENGTH_LONG).show();
         }
     };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        manager.unregisterReceiver(receiver);
+    }
+
+
 }
