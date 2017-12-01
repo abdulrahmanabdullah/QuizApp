@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,6 @@ public class SecondQuestion extends AppCompatActivity {
     EditText etAnswer8;
     CheckBox yesAnswer , noAnswer ;
     int calcuScore ;
-
     LocalBroadcastManager manager ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class SecondQuestion extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getString(R.string.app_name));
         toolbar.setSubtitle(getString(R.string.complete_question));
+        getAllScore();
     }
 
     /**
@@ -76,26 +77,10 @@ public class SecondQuestion extends AppCompatActivity {
         Toast.makeText(this," student name = " + studentName, Toast.LENGTH_LONG).show();
 
     }
-@Override
-    protected void onResume() {
-        super.onResume();
-        IntentFilter filter = new IntentFilter(ConstantValues.ACTION_NAME);
-        manager.registerReceiver(receiver,filter);
+    public void getAllScore(){
+        SharedPreferences mShared = getSharedPreferences(getPackageName()+ConstantValues.FILE_NAME,Context.MODE_PRIVATE);
+        int xy = mShared.getInt(ConstantValues.SCORE_VALUE,-1);
+        String str = mShared.getString(ConstantValues.NAME,"null");
+        Toast.makeText(this," Okay you receive this "+xy+" Name = "+str,Toast.LENGTH_LONG).show();
     }
-    BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            int i = intent.getIntExtra(ConstantValues.SCORE_VALUE,-1);
-            Log.i("ma","Got number = "+i);
-            Toast.makeText(context," we receive one messge .",Toast.LENGTH_LONG).show();
-        }
-    };
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        manager.unregisterReceiver(receiver);
-    }
-
-
 }

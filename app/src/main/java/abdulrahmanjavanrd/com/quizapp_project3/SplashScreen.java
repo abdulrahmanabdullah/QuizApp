@@ -1,7 +1,9 @@
 package abdulrahmanjavanrd.com.quizapp_project3;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -62,12 +64,20 @@ public class SplashScreen extends AppCompatActivity {
         }
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this);
         Intent  intent = new Intent(this,MainActivity.class);
-        intent.putExtra(ConstantValues.NAME,str);
+//        intent.putExtra(ConstantValues.NAME,str);
+        saveStudentName(str);
         mShouldFinish = true;
         startActivity(intent,options.toBundle());
         //TODO: Finish this Activity after click button .
     }
 
+
+    public void saveStudentName(String str){
+        SharedPreferences mShared = getSharedPreferences(getPackageName()+ConstantValues.FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mShared.edit() ;
+        editor.putString(ConstantValues.NAME,str);
+        editor.apply();
+    }
 
     @Override
     protected void onStop() {

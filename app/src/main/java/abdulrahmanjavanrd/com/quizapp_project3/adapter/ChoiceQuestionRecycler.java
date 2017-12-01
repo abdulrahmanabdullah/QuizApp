@@ -2,6 +2,8 @@ package abdulrahmanjavanrd.com.quizapp_project3.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,10 +16,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import abdulrahmanjavanrd.com.quizapp_project3.R;
 import abdulrahmanjavanrd.com.quizapp_project3.SecondQuestion;
 import abdulrahmanjavanrd.com.quizapp_project3.constant.ConstantValues;
 import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
+import abdulrahmanjavanrd.com.quizapp_project3.receive.MyReceiver;
+
 /**
  * @author  by Abdulrahman abdullah
  * @since  on 28/11/2017.
@@ -167,7 +174,10 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
         }
 
         public void sendScore(int s){
-            //TODO: send LocalBroadcast Receiver, To SecondQuestionClass .
+            SharedPreferences mShared = context.getSharedPreferences(context.getPackageName()+ConstantValues.FILE_NAME,Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = mShared.edit();
+            editor.putInt(ConstantValues.SCORE_VALUE,s);
+            editor.apply();
         }
 
     }

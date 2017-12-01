@@ -25,7 +25,6 @@ import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
 public class MainActivity extends AppCompatActivity {
     TextView txvStudentName;
     RecyclerView recyclerView ;
-    LocalBroadcastManager manager ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,22 +32,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_layout);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getString(R.string.app_name));
-        manager = LocalBroadcastManager.getInstance(this);
-        txvStudentName = findViewById(R.id.txv_name);
+//        txvStudentName = findViewById(R.id.txv_name);
         recyclerView = findViewById(R.id.recycler_v);
-        /** call {@link #setTxvStudentName()}  method  to set student name */
-        setTxvStudentName();
-        Toast.makeText(this, txvStudentName.getText().toString(),Toast.LENGTH_LONG).show();
         /**  call {@link #setUpAnim()} for  animations */
        setUpAnim();
        setUpRecycler();
-    }
-
-
-    public void sendLocalData(){
-        Intent testIntent = new Intent(ConstantValues.ACTION_NAME);
-        testIntent.putExtra(ConstantValues.SCORE_VALUE,10);
-        manager.sendBroadcast(testIntent);
     }
     /**
      * menu methods ..
@@ -90,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
      * second set the student name in textView <p>This TextView gone Visibility</p>
      */
     public void setTxvStudentName(){
-        String str = getIntent().getStringExtra(ConstantValues.NAME) ;
-        txvStudentName.setText(str);
+//        String str = getIntent().getStringExtra(ConstantValues.NAME) ;
+//        txvStudentName.setText(str);
     }
 
 
@@ -107,19 +95,18 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @return The Text in TextView .
      */
-   public String receiveStudentName(){
-       String str =  txvStudentName.getText().toString();
-       return  str ;
-   }
+//   public String receiveStudentName(){
+//       String str =  txvStudentName.getText().toString();
+//       return  str ;
+//   }
 
     /**
      * @param v button on main_app_layout , This Button send all answers in this <p>MainActivity</p> Page And Student Name .
      *          Inside this method i called {@link #receiveStudentName()} to get Student Name .
      */
   public void goToNextSlide(View v){
-      sendLocalData();
        Intent intent = new Intent(this,SecondQuestion.class);
-      intent.putExtra(ConstantValues.NAME,receiveStudentName());
+//      intent.putExtra(ConstantValues.NAME,receiveStudentName());
       startActivity(intent);
   }
 }
