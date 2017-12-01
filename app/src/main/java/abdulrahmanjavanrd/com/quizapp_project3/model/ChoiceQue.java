@@ -11,16 +11,12 @@ import abdulrahmanjavanrd.com.quizapp_project3.R;
 public class ChoiceQue {
 
    private String question ;
-   private String[] choice ;
    private int questionNumber ;
 
     public void setQuestion(String question) {
         this.question = question;
     }
 
-    public void setChoice(String[] choice) {
-        this.choice = choice;
-    }
 
     public void setQuestionNumber(int questionNumber) {
         this.questionNumber = questionNumber;
@@ -35,14 +31,11 @@ public class ChoiceQue {
 
     public static ArrayList<ChoiceQue> getData(){
         ArrayList<ChoiceQue> listQuestion = new ArrayList<>();
-
         String[] allQ = allQuestion() ;
         int[] images = getImages() ;
-
         for (int i =0 ; i < images.length ;i++){
             ChoiceQue q1 = new ChoiceQue();
             q1.setQuestion(allQ[i]);
-            q1.setChoice(allQ);
             q1.setQuestionNumber(images[i]);
             listQuestion.add(q1);
         }

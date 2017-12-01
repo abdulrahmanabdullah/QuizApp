@@ -1,12 +1,11 @@
 package abdulrahmanjavanrd.com.quizapp_project3;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.icu.text.UnicodeSetSpanner;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.support.v7.widget.Toolbar;
 import android.widget.CheckBox;
@@ -17,7 +16,7 @@ import abdulrahmanjavanrd.com.quizapp_project3.constant.ConstantValues;
 
 public class SecondQuestion extends AppCompatActivity {
 
-    EditText etAnswer7 ;
+    EditText etAnswer8;
     CheckBox yesAnswer , noAnswer ;
     int calcuScore ;
     @Override
@@ -25,7 +24,7 @@ public class SecondQuestion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_question);
         Toolbar toolbar = findViewById(R.id.second_toolBar);
-        etAnswer7 = findViewById(R.id.et_answer_7);
+        etAnswer8 = findViewById(R.id.et_answer_8);
         yesAnswer = findViewById(R.id.checkBox_yes);
         noAnswer = findViewById(R.id.checkBox_no);
         setSupportActionBar(toolbar);
@@ -38,18 +37,21 @@ public class SecondQuestion extends AppCompatActivity {
      * @param str to check what the student wrote.
      * @return string  what the etAnswer is .
      */
-    public String checkAnswer7(String str){
+    public String checkAnswer8(String str){
         if (str.equalsIgnoreCase("jvm")){
-            etAnswer7.setBackgroundColor(Color.GREEN);
+            etAnswer8.setBackgroundColor(Color.GREEN);
            calcuScore++;
         }else {
-            etAnswer7.setBackgroundColor(Color.RED);
+            etAnswer8.setBackgroundColor(Color.RED);
         }
         return str ;
     }
     public void showQuizResult(View view) {
-        String str = etAnswer7.getText().toString() ;
-        checkAnswer7(str);
+        String str = etAnswer8.getText().toString() ;
+        checkAnswer8(str);
+        /**
+         * CheckBox Questions.
+         */
         if (yesAnswer.isChecked()){
             yesAnswer.setBackgroundColor(Color.RED);
             noAnswer.setChecked(true);
@@ -62,27 +64,17 @@ public class SecondQuestion extends AppCompatActivity {
         Toast.makeText(this," correct  = " + calcuScore,Toast.LENGTH_LONG).show();
         getPreviouslyAnswer();
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.main_menu,menu);
-//        return  true ;
-//    }
-//
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()){
-//            case R.id.setting :
-//                Toast.makeText(this,"settings clicked ",Toast.LENGTH_LONG).show();
-//                break;
-//            default:
-//                break;
-//        }
-//        return true ;
-//    }
-
     public void getPreviouslyAnswer(){
         // First get student name .
         String studentName = getIntent().getStringExtra(ConstantValues.NAME);
         Toast.makeText(this," student name = " + studentName, Toast.LENGTH_LONG).show();
+
     }
+
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int i = intent.getIntExtra("s",-1);
+        }
+    };
 }

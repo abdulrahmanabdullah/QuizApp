@@ -1,8 +1,8 @@
 package abdulrahmanjavanrd.com.quizapp_project3.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 import abdulrahmanjavanrd.com.quizapp_project3.R;
+import abdulrahmanjavanrd.com.quizapp_project3.SecondQuestion;
 import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
 /**
  * @author  by Abdulrahman abdullah
@@ -80,7 +81,6 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
                     int i = getAdapterPosition() ;
                     setAnswer(i);
-                    Toast.makeText(context," Here id = "+ rdGroup.getId() ,Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -107,6 +107,8 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
                     break;
                 case  6:
                     compareAnswer(rdGroup.getCheckedRadioButtonId(),o3.getId());
+                    Toast.makeText(context,"Correct answer = "+ getAllScore,Toast.LENGTH_SHORT).show();
+                    sendScore(getAllScore);
                     break;
                 default:
                     break;
@@ -117,6 +119,7 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
             boolean isCorrect = false ;
                 if (left == right){
                     imgQ.setImageResource(R.drawable.ic_right);
+                    getAllScore++;
                     for (int j = 0; j < rdGroup.getChildCount(); j++) {
                         rdGroup.getChildAt(j).setEnabled(false);
                     }
@@ -134,7 +137,6 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
          * @param position      to modify each object
          */
         public void setData(ChoiceQue currentObject, int position) {
-
             this.imgQ.setImageResource(currentObject.getQuestionNumber());
             this.txvChoiceQ.setText(currentObject.getQuestion());
             try {
@@ -161,6 +163,12 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
             this.choiceQue = currentObject;
         }
 
+        public void sendScore(int s){
+            //TODO: send LocalBroadcast Receiver, To SecondQuestionClass .
+            Intent intent = new Intent("action.name");
+            intent.putExtra("s",s);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        }
 
     }
 }

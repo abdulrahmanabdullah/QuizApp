@@ -1,5 +1,7 @@
 package abdulrahmanjavanrd.com.quizapp_project3;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void setUpAnim(){
         Explode explode = new Explode();
-        explode.setDuration(1000);
+        explode.setDuration(500);
         getWindow().setEnterTransition(explode);
     }
 

@@ -38,7 +38,7 @@
         android:id="@+id/et_student_name"
         android:hint="@string/hint_message_for_student_name"
         android:textColor="@color/textColorPrimary"
-        android:background="@drawable/button_sytles"
+        android:background="@drawable/button_styles"
         android:layout_below="@id/up_linear"
         android:layout_centerVertical="true"
         android:gravity="center"
@@ -63,7 +63,7 @@
             android:layout_above="@id/txv_author_name"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:background="@drawable/button_sytles"
+            android:background="@drawable/button_styles"
             android:onClick="callMainActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="abdulrahmanjavanrd.com.quizapp_project3.SecondQuestion">
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:id="@+id/second_toolBar"
-        android:elevation="4dp"
-        android:background="@color/colorPrimary"
-        android:layout_height="?attr/actionBarSize"
-    />
+        android:layout_height="match_parent">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/second_toolBar"
+            android:elevation="4dp"
+            android:background="@color/colorPrimary"
+            android:layout_height="?attr/actionBarSize"
+            />
 
-    <TextView
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        android:text="@string/write_correct_answer"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <!--include input question -->
-   <include layout="@layout/input_question"/>
-    <!-- textView for true and false question -->
-    <TextView
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        android:text="@string/trueAndFalse"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <!-- include true and false question -->
-    <include layout="@layout/ture_and_false_question"/>
-    <!-- button to show all score .-->
-    <Button
-        android:text="@string/show_result"
-        android:layout_width="wrap_content"
-        android:onClick="showQuizResult"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        <TextView
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:text="@string/write_correct_answer"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--include input question -->
+        <include layout="@layout/input_question"/>
+        <!-- textView for true and false question -->
+        <TextView
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:text="@string/trueAndFalse"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!-- include true and false question -->
+        <include layout="@layout/ture_and_false_question"/>
+        <!-- button to show all score .-->
+        <Button
+            android:background="@drawable/button_styles"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginRight="24dp"
+            android:text="@string/show_result"
+            android:layout_width="match_parent"
+            android:onClick="showQuizResult"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>
