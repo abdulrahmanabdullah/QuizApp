@@ -1,19 +1,17 @@
 package abdulrahmanjavanrd.com.quizapp_project3;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.support.v7.widget.Toolbar;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import abdulrahmanjavanrd.com.quizapp_project3.constant.ConstantValues;
@@ -22,7 +20,8 @@ public class SecondQuestion extends AppCompatActivity {
 
     EditText etAnswer8;
     CheckBox yesAnswer , noAnswer ;
-    int calcuScore ;
+    int correctAnswer;
+    String studentName ;
     LocalBroadcastManager manager ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,6 @@ public class SecondQuestion extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getString(R.string.app_name));
         toolbar.setSubtitle(getString(R.string.complete_question));
-        getAllScore();
     }
 
     /**
@@ -47,7 +45,7 @@ public class SecondQuestion extends AppCompatActivity {
     public String checkAnswer8(String str){
         if (str.equalsIgnoreCase("jvm")){
             etAnswer8.setBackgroundColor(Color.GREEN);
-           calcuScore++;
+           correctAnswer++;
         }else {
             etAnswer8.setBackgroundColor(Color.RED);
         }
@@ -56,6 +54,28 @@ public class SecondQuestion extends AppCompatActivity {
     public void showQuizResult(View view) {
         String str = etAnswer8.getText().toString() ;
         checkAnswer8(str);
+        answerCheckBox();
+        getPreviouslyAnswer();
+        // TODO: call Dialog here .
+        AlertDialog.Builder dailog = new AlertDialog.Builder(this);
+        /** This View for dialog layout, and passing student name and correctAnswer to there . */
+        View v =getLayoutInflater().inflate(R.layout.dialog_layout,null);
+        TextView txvStudentName = v.findViewById(R.id.txv_student_name);
+        TextView txvCorrectAnswer = v.findViewById(R.id.txv_correct_answer);
+        txvStudentName.setText(studentName);
+        txvCorrectAnswer.setText(String.valueOf(correctAnswer));
+        dailog.setView(v);
+        dailog.show();
+
+    }
+    public void getPreviouslyAnswer(){
+        SharedPreferences mShared = getSharedPreferences(getPackageName()+ConstantValues.FILE_NAME,Context.MODE_PRIVATE);
+        correctAnswer += mShared.getInt(ConstantValues.SCORE_VALUE,-1);
+        studentName = mShared.getString(ConstantValues.NAME,"null");
+        Toast.makeText(this," Okay you receive this "+ correctAnswer +" Name = "+studentName,Toast.LENGTH_LONG).show();
+    }
+
+    public void answerCheckBox(){
         /**
          * CheckBox Questions.
          */
@@ -65,22 +85,14 @@ public class SecondQuestion extends AppCompatActivity {
             noAnswer.setBackgroundColor(Color.GREEN);
         }
         if(noAnswer.isChecked()){
-           noAnswer.setBackgroundColor(Color.GREEN);
+            noAnswer.setBackgroundColor(Color.GREEN);
+            correctAnswer++;
         }
-        // TODO: call Dialog here .
-        Toast.makeText(this," correct  = " + calcuScore,Toast.LENGTH_LONG).show();
-        getPreviouslyAnswer();
     }
-    public void getPreviouslyAnswer(){
-        // First get student name .
-        String studentName = getIntent().getStringExtra(ConstantValues.NAME);
-        Toast.makeText(this," student name = " + studentName, Toast.LENGTH_LONG).show();
-
-    }
-    public void getAllScore(){
+    public void exitQuiz(View v){
         SharedPreferences mShared = getSharedPreferences(getPackageName()+ConstantValues.FILE_NAME,Context.MODE_PRIVATE);
-        int xy = mShared.getInt(ConstantValues.SCORE_VALUE,-1);
-        String str = mShared.getString(ConstantValues.NAME,"null");
-        Toast.makeText(this," Okay you receive this "+xy+" Name = "+str,Toast.LENGTH_LONG).show();
+        SharedPreferences.Editor edtior = mShared.edit();
+        edtior.clear();
+        this.finish();
     }
 }

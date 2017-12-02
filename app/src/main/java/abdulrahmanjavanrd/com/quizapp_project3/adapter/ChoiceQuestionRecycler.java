@@ -23,7 +23,6 @@ import abdulrahmanjavanrd.com.quizapp_project3.R;
 import abdulrahmanjavanrd.com.quizapp_project3.SecondQuestion;
 import abdulrahmanjavanrd.com.quizapp_project3.constant.ConstantValues;
 import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
-import abdulrahmanjavanrd.com.quizapp_project3.receive.MyReceiver;
 
 /**
  * @author  by Abdulrahman abdullah

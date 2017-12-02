@@ -16,4 +16,8 @@
     <string name="title_second_page">Second page</string>
     <string name="complete_question">Complete Questions</string>
     <string name="choice_question">Please choice correct answer</string>
+    <string name="thanks_message">Conclusion</string>
+    <string name="student_name">Student :</string>
+    <string name="correct_answer">Correct Answer :</string>
+    <string name="exit">Exit</string>
 </resources>
