@@ -32,9 +32,7 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
     private List<ChoiceQue> mData;
     private LayoutInflater mInflater;
     public Context context ;
-    LocalBroadcastManager manager ;
-    int lastSelection  ;
-    int getAllScore ;
+    private int getAllScore ;
 
     /**
      * @param data List value of ChoiceQue, When i call This call i can passing static arrayList .
@@ -44,7 +42,6 @@ public class ChoiceQuestionRecycler extends RecyclerView.Adapter<ChoiceQuestionR
         this.mData = data;
         this.mInflater = LayoutInflater.from(ctx);
         this.context = ctx ;
-        manager = LocalBroadcastManager.getInstance(context);
     }
 
     @Override

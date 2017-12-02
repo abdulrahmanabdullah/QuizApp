@@ -49,6 +49,17 @@ public class SecondQuestion extends AppCompatActivity {
         }
         return str ;
     }
+
+    /**
+     *
+     * @param view for result Button in activity_second_question.xml
+     *
+     *             When user click this Button :
+     *            First:<P> Get input from {@link #etAnswer8} and check if the input answer is correct Or not.</P>
+     *            Second: <P>{@link #answerCheckBox()} check the checkBox answer.</P>
+     *            Third: <P> get the correct answer in choice question {@link #getPreviouslyAnswer()}</P>
+     *            Four : <p> Create new AlertDialog page and pass the student name And correct answer value. </p>
+     */
     public void showQuizResult(View view) {
         String str = etAnswer8.getText().toString() ;
         checkAnswer8(str);
@@ -56,27 +67,35 @@ public class SecondQuestion extends AppCompatActivity {
         getPreviouslyAnswer();
         // TODO: call Dialog here .
         AlertDialog.Builder dailog = new AlertDialog.Builder(this);
-        /** This View for dialog layout, and passing student name and correctAnswer to there . */
+        /** This View for dialog layout,And pass student name and correct Answer to Dialog page.*/
         View v =getLayoutInflater().inflate(R.layout.dialog_layout,null);
         TextView txvStudentName = v.findViewById(R.id.txv_student_name);
         TextView txvCorrectAnswer = v.findViewById(R.id.txv_correct_answer);
         txvStudentName.setText(studentName);
-        txvCorrectAnswer.setText(String.valueOf(correctAnswer));
+        txvCorrectAnswer.setText(String.valueOf(correctAnswer)+"/9");
         dailog.setView(v);
         dailog.show();
 
     }
     public void getPreviouslyAnswer(){
         SharedPreferences mShared = getSharedPreferences(getPackageName()+ConstantValues.FILE_NAME,Context.MODE_PRIVATE);
-        correctAnswer += mShared.getInt(ConstantValues.SCORE_VALUE,-1);
+        /** save previously correct answer, Then remove it .*/
+        int temperedNumber = mShared.getInt(ConstantValues.SCORE_VALUE,00);
+        correctAnswer += temperedNumber;
+        /** Now remove values in the xml, Because when user retry quiz */
+        SharedPreferences.Editor editor = mShared.edit();
+        editor.remove(ConstantValues.SCORE_VALUE);
+        /** save the student name in local variable, Then remove the save Values in xml file */
         studentName = mShared.getString(ConstantValues.NAME,"null");
+        editor.remove(ConstantValues.NAME);
+        editor.apply();
         Toast.makeText(this," Okay you receive this "+ correctAnswer +" Name = "+studentName,Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * CheckBox Questions.
+     */
     public void answerCheckBox(){
-        /**
-         * CheckBox Questions.
-         */
         if (yesAnswer.isChecked()){
             yesAnswer.setBackgroundColor(Color.RED);
             noAnswer.setChecked(true);
@@ -88,11 +107,6 @@ public class SecondQuestion extends AppCompatActivity {
         }
     }
     public void exitQuiz(View v){
-        SharedPreferences mShared = getSharedPreferences(getPackageName()+ConstantValues.FILE_NAME,Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mShared.edit();
-        editor.remove(ConstantValues.NAME);
-        editor.remove(ConstantValues.SCORE_VALUE);
-        editor.clear();
         this.finish();
     }
 }
