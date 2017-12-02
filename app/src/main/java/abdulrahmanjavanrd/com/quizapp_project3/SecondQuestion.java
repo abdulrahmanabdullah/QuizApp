@@ -1,6 +1,7 @@
 package abdulrahmanjavanrd.com.quizapp_project3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.content.LocalBroadcastManager;
@@ -108,5 +109,10 @@ public class SecondQuestion extends AppCompatActivity {
     }
     public void exitQuiz(View v){
         this.finish();
+    }
+
+    public void retryQuiz(View v){
+        Intent  mIntent = new Intent(this,SplashScreen.class);
+        startActivity(mIntent);
     }
 }
