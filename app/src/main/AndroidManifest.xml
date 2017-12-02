@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".app.MainActivity">
 
         </activity>
-        <activity android:name=".SplashScreen">
+        <activity android:name=".activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".SecondQuestion"
-            android:parentActivityName=".MainActivity">
-            <meta-data  android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+            android:name=".activities.SecondActivity"
+            android:parentActivityName=".app.MainActivity">
+            <meta-data  android:name="android.support.PARENT_ACTIVITY" android:value=".app.MainActivity"/>
         </activity>
         <receiver android:name=".receive.MyReceiver"></receiver>
     </application>

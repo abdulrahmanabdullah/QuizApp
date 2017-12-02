@@ -1,4 +1,4 @@
-package abdulrahmanjavanrd.com.quizapp_project3;
+package abdulrahmanjavanrd.com.quizapp_project3.app;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import abdulrahmanjavanrd.com.quizapp_project3.R;
+import abdulrahmanjavanrd.com.quizapp_project3.activities.SecondActivity;
 import abdulrahmanjavanrd.com.quizapp_project3.adapter.ChoiceQuestionRecycler;
 import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
 
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
      *          Inside this method i called {@link #receiveStudentName()} to get Student Name .
      */
   public void goToNextSlide(View v){
-       Intent intent = new Intent(this,SecondQuestion.class);
+       Intent intent = new Intent(this,SecondActivity.class);
       startActivity(intent);
       this.finish();
   }
