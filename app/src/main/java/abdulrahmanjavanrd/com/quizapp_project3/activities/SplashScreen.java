@@ -12,7 +12,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
 import abdulrahmanjavanrd.com.quizapp_project3.app.MainActivity;
 import abdulrahmanjavanrd.com.quizapp_project3.R;
 import abdulrahmanjavanrd.com.quizapp_project3.constant.ConstantValues;
