@@ -22,13 +22,11 @@ public class SecondQuestion extends AppCompatActivity {
     CheckBox yesAnswer , noAnswer ;
     int correctAnswer;
     String studentName ;
-    LocalBroadcastManager manager ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_question);
         Toolbar toolbar = findViewById(R.id.second_toolBar);
-        manager = LocalBroadcastManager.getInstance(this);
         etAnswer8 = findViewById(R.id.et_answer_8);
         yesAnswer = findViewById(R.id.checkBox_yes);
         noAnswer = findViewById(R.id.checkBox_no);
@@ -91,8 +89,10 @@ public class SecondQuestion extends AppCompatActivity {
     }
     public void exitQuiz(View v){
         SharedPreferences mShared = getSharedPreferences(getPackageName()+ConstantValues.FILE_NAME,Context.MODE_PRIVATE);
-        SharedPreferences.Editor edtior = mShared.edit();
-        edtior.clear();
+        SharedPreferences.Editor editor = mShared.edit();
+        editor.remove(ConstantValues.NAME);
+        editor.remove(ConstantValues.SCORE_VALUE);
+        editor.clear();
         this.finish();
     }
 }
