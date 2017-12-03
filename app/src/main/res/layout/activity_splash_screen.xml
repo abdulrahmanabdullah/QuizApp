@@ -46,6 +46,7 @@
         android:background="@drawable/button_styles"
         android:gravity="center"
         android:hint="@string/hint_message_for_student_name"
+        android:inputType="text"
         android:textColor="@color/textColorPrimary" />
 
     <LinearLayout

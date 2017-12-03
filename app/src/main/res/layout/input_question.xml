@@ -1,45 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:card_view="http://schemas.android.com/tools"
-    android:background="@color/textColorPrimary"
-    android:layout_marginTop="5dp"
-    android:layout_marginRight="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
     android:layout_marginLeft="5dp"
-    card_view:cardCornerRaduis="5dp"
-    android:layout_height="wrap_content">
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@color/textColorPrimary"
+    card_view:cardCornerRaduis="5dp">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:background="#fff"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="horizontal">
 
         <ImageView
-            android:src="@drawable/ic_eight"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="7dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
+            android:src="@drawable/ic_eight" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-           <TextView
-               android:text="@string/question_8"
-               android:textSize="24sp"
-               android:gravity="center"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/question_8"
+                android:textSize="24sp" />
 
             <EditText
-                android:hint=" Answer q here . "
                 android:id="@+id/et_answer_8"
-                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint=" Answer q here . "
+                android:inputType="text" />
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

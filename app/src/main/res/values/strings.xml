@@ -6,12 +6,14 @@
     <string name="welcome_message">Hello, This is a just simple java qiuz</string>
     <string name="hint_message_for_student_name">Please enter your name</string>
     <string name="write_correct_answer">Write Correct Answer</string>
-    <string name="trueAndFalse">True / False</string>
+    <string name="checkAllCorrectAnswre">Choose all correct answer </string>
     <string name="show_result">Result</string>
     <string name="question_8">Write shortcut of Java Virtual Machine ?</string>
-    <string name="true_question">Is delete,next,main,exit or null keyword in java ?</string>
-    <string name="yes">yes</string>
-    <string name="no">No</string>
+    <string name="checkBox_question">Which of the below are reserved keyword in java ?</string>
+    <string name="first_answer">null</string>
+    <string name="second_answer">array</string>
+    <string name="third_answer">int</string>
+    <string name="fourth_answer">goto</string>
     <string name="next_slide">Next</string>
     <string name="title_second_page">Second page</string>
     <string name="complete_question">Complete Questions</string>
@@ -21,4 +23,5 @@
     <string name="correct_answer">Correct Answer :</string>
     <string name="exit">Exit</string>
     <string name="retry">Retry</string>
+    <string name="incorrect_answer">Incorrect Answer:</string>
 </resources>

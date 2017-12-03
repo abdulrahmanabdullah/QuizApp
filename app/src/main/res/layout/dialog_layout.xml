@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.7"
             android:fontFamily="sans-serif"
             android:text="@string/correct_answer"
             android:textColor="@color/textColorPrimary"
@@ -85,11 +85,40 @@
             android:textSize="15sp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linear_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_2"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:fontFamily="sans-serif"
+            android:text="@string/incorrect_answer"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txv_incorrect_answer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="Correct answer "
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15sp" />
+    </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@id/linear_2"
-        android:layout_below="@id/linear_2"
+        android:layout_alignRight="@id/linear_3"
+        android:layout_below="@id/linear_3"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="24dp"
@@ -101,7 +130,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linear_2"
+        android:layout_below="@id/linear_3"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
