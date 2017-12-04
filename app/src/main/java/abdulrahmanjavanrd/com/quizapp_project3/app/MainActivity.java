@@ -1,6 +1,7 @@
 package abdulrahmanjavanrd.com.quizapp_project3.app;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import abdulrahmanjavanrd.com.quizapp_project3.R;
+import abdulrahmanjavanrd.com.quizapp_project3.activities.ContactMeActivity;
 import abdulrahmanjavanrd.com.quizapp_project3.activities.SecondActivity;
 import abdulrahmanjavanrd.com.quizapp_project3.adapter.ChoiceQuestionRecycler;
 import abdulrahmanjavanrd.com.quizapp_project3.model.ChoiceQue;
@@ -54,10 +56,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.setting:
-                Intent mIntent = new Intent(Settings.ACTION_SETTINGS);
+                Intent mIntent = new Intent(this, ContactMeActivity.class);
                 startActivity(mIntent);
                 break;
-            default:
+            case R.id.exit_app:
+                this.finishAfterTransition();
                 break;
         }
         return true;

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Java Quiz</string>
-    <string name="setting">settings</string>
+    <string name="about_app">About App.</string>
     <string name="btn_send_student_name">let\'s start</string>
     <string name="author_name">create By Abdulahman</string>
     <string name="welcome_message">Hello, This is a just simple java qiuz</string>
@@ -24,4 +24,7 @@
     <string name="exit">Exit</string>
     <string name="retry">Retry</string>
     <string name="incorrect_answer">Incorrect Answer:</string>
+    <string name="contact_mes">Thank you,For using our app This is a simple java quiz, version 1.0 If you meet any issues OR have a notes please contact us</string>
+    <string name="write_notes_here">Write your notes here</string>
+    <string name="sendEmail">Send mail</string>
 </resources>

@@ -23,7 +23,7 @@
             android:parentActivityName=".app.MainActivity">
             <meta-data  android:name="android.support.PARENT_ACTIVITY" android:value=".app.MainActivity"/>
         </activity>
-        <receiver android:name=".receive.MyReceiver"></receiver>
+        <activity android:name=".activities.ContactMeActivity"/>
     </application>
 
 </manifest>

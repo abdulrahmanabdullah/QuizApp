@@ -104,19 +104,25 @@ public class SecondActivity extends AppCompatActivity {
             case R.id.chBox_first:
                 if (checked)
                     firstChoice.setBackgroundColor(Color.RED);
+                /** If user select this choice, decrement correctAnswer */
+                correctAnswer--;
                 break;
             case R.id.chBox_second:
                 if (checked)
                     secondChoice.setBackgroundColor(Color.RED);
+                /** If user select this choice, decrement correctAnswer */
+                correctAnswer--;
                 break;
             case R.id.chBox_third:
                 if (checked)
                     thirdChoice.setBackgroundColor(Color.GREEN);
+                /** If user select this choice, increment correctAnswer */
                 correctAnswer++;
                 break;
             case R.id.chBox_fourth:
                 if (checked)
                     fourthChoice.setBackgroundColor(Color.GREEN);
+                /** If user select this choice, increment correctAnswer */
                 correctAnswer++;
                 break;
 

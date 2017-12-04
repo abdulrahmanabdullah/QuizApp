@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txv_about_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/about_app"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/txv_thanks_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txv_about_app"
+        android:layout_marginTop="24dp"
+        android:gravity="left"
+        android:lines="4"
+        android:maxLines="4"
+        android:padding="16dp"
+        android:text="@string/contact_mes"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/et_write_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txv_thanks_msg"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24sp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/write_notes_here"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_write_notes"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/send_mail_btn"
+        android:onClick="sendEmailMessage"
+        android:text="@string/sendEmail"
+        android:textColor="#fff" />
+
+</RelativeLayout>
