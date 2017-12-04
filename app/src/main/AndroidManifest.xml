@@ -23,7 +23,9 @@
             android:parentActivityName=".app.MainActivity">
             <meta-data  android:name="android.support.PARENT_ACTIVITY" android:value=".app.MainActivity"/>
         </activity>
-        <activity android:name=".activities.ContactMeActivity"/>
+        <activity android:name=".activities.ContactMeActivity" android:parentActivityName=".app.MainActivity" android:label="@string/about_app">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".app.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

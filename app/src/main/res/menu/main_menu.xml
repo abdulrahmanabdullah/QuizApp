@@ -11,6 +11,6 @@
     <item
         android:id="@+id/exit_app"
         android:orderInCategory="100"
-        android:title="exit"
-        app:showAsAction="never"/>
+        android:title="@string/exit"
+        app:showAsAction="never" />
 </menu>
